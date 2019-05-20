@@ -1,0 +1,23 @@
+<div class="container text-center">
+  <h1 class="mt-5">Result</h1>
+  <ul class="list-inline border shadow rounded m-3 py-5 px-3">
+    <% @letters.each do |letter| %>
+    <li class="letter-card letter-card-lg list-inline-item" data-target="<%= letter %>"><%= letter %></li>
+    <% end %>
+  </ul>
+
+  <% if @result %>
+  <div class="container mt-5">
+      <h3 class="mb-3">Your guess:</h3>
+      <p class="card-letter text-white bg-primary border shadow text-center font-weight-bold py-3 px-3 rounded"><%= @guess %></p>
+      <ul class="list-group"></ul>
+      <li class="list-group-item"><%= @result[:message] %></li>
+      <li class="list-group-item">Your current total is <%= session[:score] %> points after <%= session[:number_of_games] %> games.</li>
+      <li class="list-group-item">
+        The longest possible words were: <br>
+        <%= @result[:solutions].join(", ") %> (<%= @result[:max_points] %> points)
+      </li>
+      <%= link_to "NEW GAME", '/new', class: "btn btn-primary w-100 font-weight-bold" %>
+    <% end %>
+  </div>
+</div>

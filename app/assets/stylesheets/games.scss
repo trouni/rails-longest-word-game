@@ -1,0 +1,49 @@
+// Place all the styles related to the games controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#guess-preview {
+  height: 3em;
+}
+
+.letter-card {
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.letter-card-sm {
+  width: 3em;
+  height: 3em;
+  line-height: 3em;
+  transform: scalex(-1);
+  transition: 0.3s;
+  visibility: hidden;
+}
+
+.letter-card-sm.active {
+  visibility: unset;
+  background-color: #007bff;
+  transform: scalex(1);
+}
+
+.letter-card-lg {
+  background-color: #007bff;
+  width: 3em;
+  height: 3em;
+  line-height: 3em;
+  font-size: 24px;
+  transition: 0.3s;
+}
+
+.letter-card-lg.inactive {
+  color: gray;
+  background-color: gray;
+  transform: scalex(-1);
+}
+
+input {
+  font-size: 2em;
+  text-transform: uppercase;
+}

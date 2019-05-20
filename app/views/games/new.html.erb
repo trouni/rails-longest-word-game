@@ -1,0 +1,18 @@
+<div class="container text-center">
+  <h1 class="mt-5">What is the longest word you can find?</h1>
+  <ul class="list-inline border shadow rounded m-3 py-5 px-3">
+    <% @letters.each do |letter| %>
+    <li class="letter-card letter-card-lg list-inline-item" data-target="<%= letter %>"><%= letter %></li>
+    <% end %>
+  </ul>
+
+  <ul id="guess-preview" class="mt-5 p-0">
+  </ul>
+
+  <form id="form-guess" action="/score" class="form-group form-inline py-5 d-flex justify-content-center" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag 'grid', @letters.join %>
+    <input type="hidden" id="guess-input" name="guess">
+    <input type="submit" value="Submit" class="form-control btn btn-secondary btn-lg">
+  </form>
+</div>
